@@ -4,9 +4,9 @@ EmployeeHub is a Laravel 13 employee-management application. Authenticated users
 
 ## Requirements
 
-- PHP 8.3 or later with SQLite enabled
-- Composer 2
-- Node.js 20 or later and npm
+-   PHP 8.3 or later with SQLite enabled
+-   Composer 2
+-   Node.js 20 or later and npm
 
 ## Setup
 
@@ -28,7 +28,7 @@ The application is configured for SQLite by default. Ensure these values exist i
 ```dotenv
 APP_NAME=EmployeeHub
 APP_URL=http://localhost:8000
-DB_CONNECTION=sqlite
+DB_CONNECTION=mysql
 SESSION_DRIVER=database
 ```
 
@@ -45,8 +45,8 @@ php artisan db:seed
 
 The seeder creates five departments and fifty employees. It also provides this browser login:
 
-| Email | Password |
-| --- | --- |
+| Email              | Password   |
+| ------------------ | ---------- |
 | `test@example.com` | `password` |
 
 ## Running the application
@@ -68,15 +68,15 @@ Open `http://localhost:8000`. The first page has normal **Log in** and **Create 
 
 ## Features
 
-- Laravel Breeze registration, login, logout, password reset, profile management, and email-verification routes.
-- Gates and ownership policies; users only access records they created.
-- Department CRUD: name, description, and active/inactive status.
-- Employee CRUD: name, email, phone, salary, joining date, department, and status.
-- Department-to-employee one-to-many relationship; every employee requires an active department owned by the current user.
-- Soft deletes for departments and employees. A department with employees cannot be deleted until its employees are moved or deleted.
-- Server-side DataTables employee listing with name/email search, department/status filtering, ordering, and pagination.
-- jQuery client-side required-field validation and Laravel Form Request server-side validation.
-- SweetAlert2 confirmation for delete actions and success/error feedback for create, update, and delete actions.
+-   Laravel Breeze registration, login, logout, password reset, profile management, and email-verification routes.
+-   Gates and ownership policies; users only access records they created.
+-   Department CRUD: name, description, and active/inactive status.
+-   Employee CRUD: name, email, phone, salary, joining date, department, and status.
+-   Department-to-employee one-to-many relationship; every employee requires an active department owned by the current user.
+-   Soft deletes for departments and employees. A department with employees cannot be deleted until its employees are moved or deleted.
+-   Server-side DataTables employee listing with name/email search, department/status filtering, ordering, and pagination.
+-   jQuery client-side required-field validation and Laravel Form Request server-side validation.
+-   SweetAlert2 confirmation for delete actions and success/error feedback for create, update, and delete actions.
 
 ## REST API
 
@@ -84,28 +84,28 @@ API routes are prefixed with `/api` and resource endpoints require a Sanctum bea
 
 ### Authentication
 
-| Method | Endpoint | Purpose |
-| --- | --- | --- |
-| POST | `/api/register` | Create an account and receive a token |
-| POST | `/api/login` | Receive a bearer token |
-| POST | `/api/logout` | Revoke the current bearer token |
+| Method | Endpoint        | Purpose                               |
+| ------ | --------------- | ------------------------------------- |
+| POST   | `/api/register` | Create an account and receive a token |
+| POST   | `/api/login`    | Receive a bearer token                |
+| POST   | `/api/logout`   | Revoke the current bearer token       |
 
 `POST /api/register` expects `name`, `email`, `password`, `password_confirmation`, and optional `device_name`. `POST /api/login` expects `email`, `password`, and optional `device_name`.
 
 ### Resources
 
-| Method | Endpoint | Purpose |
-| --- | --- | --- |
-| GET | `/api/departments` | List departments |
-| POST | `/api/departments` | Create a department |
-| GET | `/api/departments/{id}` | View a department |
-| PUT/PATCH | `/api/departments/{id}` | Update a department |
-| DELETE | `/api/departments/{id}` | Soft-delete a department |
-| GET | `/api/employees` | List employees |
-| POST | `/api/employees` | Create an employee |
-| GET | `/api/employees/{id}` | View an employee |
-| PUT/PATCH | `/api/employees/{id}` | Update an employee |
-| DELETE | `/api/employees/{id}` | Soft-delete an employee |
+| Method    | Endpoint                | Purpose                  |
+| --------- | ----------------------- | ------------------------ |
+| GET       | `/api/departments`      | List departments         |
+| POST      | `/api/departments`      | Create a department      |
+| GET       | `/api/departments/{id}` | View a department        |
+| PUT/PATCH | `/api/departments/{id}` | Update a department      |
+| DELETE    | `/api/departments/{id}` | Soft-delete a department |
+| GET       | `/api/employees`        | List employees           |
+| POST      | `/api/employees`        | Create an employee       |
+| GET       | `/api/employees/{id}`   | View an employee         |
+| PUT/PATCH | `/api/employees/{id}`   | Update an employee       |
+| DELETE    | `/api/employees/{id}`   | Soft-delete an employee  |
 
 Employee list queries accept `search`, `department_id`, `status`, and normal Laravel pagination parameters such as `page`. Resource records are always scoped to the token owner.
 
