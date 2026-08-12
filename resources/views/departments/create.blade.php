@@ -1,0 +1,1 @@
+<x-app-layout><x-slot name="header"><h2 class="text-xl font-semibold">New department</h2></x-slot><div class="py-8"><div class="mx-auto max-w-2xl rounded bg-white p-6 shadow"><form id="department-form" method="POST" action="{{ route('departments.store') }}">@include('departments._form')</form></div></div></x-app-layout>
