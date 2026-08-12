@@ -1,0 +1,1 @@
+<x-app-layout><x-slot name="header"><h2 class="text-xl font-semibold">Edit employee</h2></x-slot><div class="py-8"><div class="mx-auto max-w-3xl rounded bg-white p-6 shadow"><form id="employee-form" method="POST" action="{{ route('employees.update', $employee) }}">@include('employees._form')</form></div></div></x-app-layout>

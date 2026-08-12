@@ -1,0 +1,1 @@
+<a class="text-indigo-600" href="{{ route('employees.show', $employee) }}">View</a><a class="ml-3 text-indigo-600" href="{{ route('employees.edit', $employee) }}">Edit</a><form class="js-delete-form ml-3 inline" method="POST" action="{{ route('employees.destroy', $employee) }}">@csrf @method('DELETE')<button class="text-red-600">Delete</button></form>
