@@ -148,4 +148,4 @@ php artisan test
 
 ## AI prompt/source document
 
-The implementation requirements were provided in [`../markdown.yaml`](../markdown.yaml). AI assistance was used to implement the Laravel application from that document.
+The implementation requirements are recorded in the tracked [AI implementation prompt](docs/ai-prompt.md). AI assistance was used to implement the Laravel application from that document.
